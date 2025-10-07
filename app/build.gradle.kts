@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.jams.consultarcep"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.jams.consultarcep"
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
@@ -33,6 +33,10 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -45,4 +49,12 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    // Retrofit para chamadas de API
+    implementation(libs.retrofit)
+    // Conversor Gson para transformar JSON em objetos Kotlin
+    implementation(libs.converter.gson)
+
+    // Coroutines para tarefas assíncronas
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.androidx.lifecycle.runtime.ktx) // Para o lifecycleScope
 }
